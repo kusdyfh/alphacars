@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA | Luxury Car Rental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #333333;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --gold: #d4af37;
+            --gold-light: #e8c75c;
+            --gold-dark: #b8941f;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.18);
+            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --whatsapp-green: #25D366;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--medium-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--primary-black);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--primary-black);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--primary-black);
+            transform: translateY(-3px);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-background.active {
+            opacity: 1;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .btn {
+            font-size: 1.1rem;
+            padding: 18px 45px;
+        }
+
+        /* Car Fleet Section */
+        .fleet {
+            background-color: var(--light-gray);
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .car-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .car-image {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.05);
+        }
+
+        .car-info {
+            padding: 25px;
+        }
+
+        .car-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .car-type {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .price-option {
+            text-align: center;
+            flex: 1;
+        }
+
+        .price-option h4 {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            margin-bottom: 5px;
+        }
+
+        .price-option p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-black);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-features i {
+            color: var(--gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 450px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* WhatsApp Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .booking-modal {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active .booking-modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-header h3 i {
+            color: var(--whatsapp-green);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-black);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-black);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .footer-column p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            color: var(--gold);
+            margin-right: 15px;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                gap: 40px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-black);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 350px;
+                order: -1;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            section {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+            }
+
+            .car-card {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .booking-modal {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">ALPHA<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#fleet">Our Fleet</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Background images for rotation -->
+        <div class="hero-background active" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1494976388901-750342ad5036?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');"></div>
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80');"></div>
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1563720223488-8f2f62a6e71a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80');"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Drive the Extraordinary with ALPHA</h1>
+                <p>Luxury cars for every occasion. Porsche, Land Cruiser, GMC, Range Rover, Toyota and more. Easy booking via WhatsApp.</p>
+                <button class="btn btn-whatsapp open-booking-modal">
+                    <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Fleet Section -->
+    <section id="fleet" class="fleet">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Luxury Fleet</h2>
+                <p>Choose from our premium collection of luxury vehicles, each maintained to the highest standards for your comfort and safety.</p>
+            </div>
+            <div class="fleet-grid">
+                <!-- Porsche -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Porsche Luxury Car">
+                    </div>
+                    <div class="car-info">
+                        <h3>Porsche 911</h3>
+                        <span class="car-type">Sports Luxury</span>
+                        <div class="pricing">
+                            <div class="price-option">
+                                <h4>Hourly</h4>
+                                <p>$80-150</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Daily</h4>
+                                <p>$300-600</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Weekend</h4>
+                                <p>$800-1200</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-whatsapp open-booking-modal" data-car="Porsche 911">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Land Cruiser -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1563720223488-8f2f62a6e71a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Toyota Land Cruiser">
+                    </div>
+                    <div class="car-info">
+                        <h3>Toyota Land Cruiser</h3>
+                        <span class="car-type">Luxury SUV</span>
+                        <div class="pricing">
+                            <div class="price-option">
+                                <h4>Hourly</h4>
+                                <p>$50-100</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Daily</h4>
+                                <p>$200-400</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Weekend</h4>
+                                <p>$600-900</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-whatsapp open-booking-modal" data-car="Toyota Land Cruiser">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GMC -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80" alt="GMC Luxury Vehicle">
+                    </div>
+                    <div class="car-info">
+                        <h3>GMC Yukon</h3>
+                        <span class="car-type">Premium SUV</span>
+                        <div class="pricing">
+                            <div class="price-option">
+                                <h4>Hourly</h4>
+                                <p>$60-110</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Daily</h4>
+                                <p>$250-450</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Weekend</h4>
+                                <p>$700-1000</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-whatsapp open-booking-modal" data-car="GMC Yukon">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Range Rover -->
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1494976388901-750342ad5036?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Range Rover">
+                    </div>
+                    <div class="car-info">
+                        <h3>Range Rover Vogue</h3>
+                        <span class="car-type">Luxury SUV</span>
+                        <div class="pricing">
+                            <div class="price-option">
+                                <h4>Hourly</h4>
+                                <p>$70-130</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Daily</h4>
+                                <p>$280-550</p>
+                            </div>
+                            <div class="price-option">
+                                <h4>Weekend</h4>
+                                <p>$750-1100</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-whatsapp open-booking-modal" data-car="Range Rover Vogue">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Experience Luxury & Trust with ALPHA</h2>
+                    <p>ALPHA Luxury Car Rental is dedicated to providing the highest quality luxury vehicles for every occasion. With over a decade of experience, we have established ourselves as the premier choice for those seeking style, comfort, and performance.</p>
+                    <p>Our fleet features the latest models from top manufacturers, each meticulously maintained and regularly serviced to ensure your safety and satisfaction. We pride ourselves on offering personalized service tailored to your specific needs.</p>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> Premium luxury vehicles maintained to highest standards</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible rental options (hourly, daily, weekend)</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 customer support and assistance</li>
+                        <li><i class="fas fa-check-circle"></i> Easy WhatsApp booking and communication</li>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive insurance coverage included</li>
+                    </ul>
+                    <button class="btn btn-primary open-booking-modal" style="margin-top: 30px;">
+                        <i class="fab fa-whatsapp"></i> Book Your Luxury Ride
+                    </button>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="Luxury Car Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ALPHA<span>.</span></h3>
+                    <p>Your premier choice for luxury car rentals. Experience the extraordinary with our premium fleet and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/905344147837" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#fleet">Our Fleet</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Luxury District, Istanbul, Turkey</li>
+                        <li><i class="fas fa-phone"></i> +90 534 414 78 37</li>
+                        <li><i class="fas fa-envelope"></i> info@alphaluxury.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Availability</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ALPHA Luxury Car Rental. All rights reserved. | Drive the Extraordinary</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Booking Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="booking-modal">
+            <div class="modal-header">
+                <h3><i class="fab fa-whatsapp"></i> Book via WhatsApp</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="carModel">Car Model *</label>
+                    <select id="carModel" name="carModel" required>
+                        <option value="">Select a car</option>
+                        <option value="Porsche 911">Porsche 911</option>
+                        <option value="Toyota Land Cruiser">Toyota Land Cruiser</option>
+                        <option value="GMC Yukon">GMC Yukon</option>
+                        <option value="Range Rover Vogue">Range Rover Vogue</option>
+                        <option value="Other Luxury Car">Other Luxury Car</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rentalType">Rental Type *</label>
+                    <select id="rentalType" name="rentalType" required>
+                        <option value="">Select rental type</option>
+                        <option value="Hourly">Hourly</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Weekend">Weekend</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rentalDuration">Rental Duration *</label>
+                    <input type="number" id="rentalDuration" name="rentalDuration" min="1" max="30" placeholder="e.g., 2 hours, 3 days" required>
+                    <small id="durationHelp">Enter number of hours/days as per your selection above</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerName">Your Name *</label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number *</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" placeholder="+90 5XX XXX XX XX" required>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-whatsapp" style="flex: 1;">
+                        <i class="fab fa-whatsapp"></i> Send WhatsApp Message
+                    </button>
+                    <button type="button" class="btn btn-outline" id="cancelBooking" style="flex: 1; color: var(--primary-black); border-color: var(--medium-gray);">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const header = document.querySelector('header');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hero Background Rotation
+        const heroBackgrounds = document.querySelectorAll('.hero-background');
+        let currentBgIndex = 0;
+
+        function rotateBackground() {
+            // Hide current background
+            heroBackgrounds[currentBgIndex].classList.remove('active');
+            
+            // Move to next background
+            currentBgIndex = (currentBgIndex + 1) % heroBackgrounds.length;
+            
+            // Show next background
+            heroBackgrounds[currentBgIndex].classList.add('active');
+        }
+
+        // Start background rotation (change every 5 seconds)
+        setInterval(rotateBackground, 5000);
+
+        // WhatsApp Booking Modal
+        const bookingModal = document.getElementById('bookingModal');
+        const openBookingModalButtons = document.querySelectorAll('.open-booking-modal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const cancelBookingBtn = document.getElementById('cancelBooking');
+        const bookingForm = document.getElementById('bookingForm');
+        const carModelSelect = document.getElementById('carModel');
+
+        // Open modal with car pre-selected if clicked from a car card
+        openBookingModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const carModel = button.getAttribute('data-car');
+                if (carModel) {
+                    carModelSelect.value = carModel;
+                }
+                bookingModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close modal functions
+        function closeModal() {
+            bookingModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelBookingBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeModal();
+            }
+        });
+
+        // Form submission to generate WhatsApp message
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const carModel = document.getElementById('carModel').value;
+            const rentalType = document.getElementById('rentalType').value;
+            const rentalDuration = document.getElementById('rentalDuration').value;
+            const customerName = document.getElementById('customerName').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            
+            // Validate form
+            if (!carModel || !rentalType || !rentalDuration || !customerName || !contactNumber) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Create WhatsApp message
+            const message = `Hello ALPHA Luxury Car Rental!%0A%0A` +
+                           `I would like to book a car:%0A` +
+                           `• Car Model: ${carModel}%0A` +
+                           `• Rental Type: ${rentalType}%0A` +
+                           `• Rental Duration: ${rentalDuration} ${rentalType === 'Hourly' ? 'hours' : rentalType === 'Daily' ? 'days' : 'weekends'}%0A` +
+                           `• Name: ${customerName}%0A` +
+                           `• Contact Number: ${contactNumber}%0A%0A` +
+                           `Please contact me to confirm the booking. Thank you!`;
+            
+            // WhatsApp phone number (with country code)
+            const phoneNumber = '905344147837';
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Close modal
+            closeModal();
+            
+            // Reset form
+            bookingForm.reset();
+        });
+
+        // Update help text based on rental type selection
+        const rentalTypeSelect = document.getElementById('rentalType');
+        const durationHelp = document.getElementById('durationHelp');
+        
+        rentalTypeSelect.addEventListener('change', () => {
+            const selectedType = rentalTypeSelect.value;
+            let helpText = 'Enter number of ';
+            
+            if (selectedType === 'Hourly') {
+                helpText += 'hours (e.g., 2 for 2 hours)';
+            } else if (selectedType === 'Daily') {
+                helpText += 'days (e.g., 3 for 3 days)';
+            } else if (selectedType === 'Weekend') {
+                helpText += 'weekends (e.g., 1 for one weekend)';
+            } else {
+                helpText += 'hours/days as per your selection above';
+            }
+            
+            durationHelp.textContent = helpText;
+        });
+    </script>
+</body>
+</html>
